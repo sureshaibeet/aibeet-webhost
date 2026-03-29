@@ -1,13 +1,2575 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GFG</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AIBEET TECHNOLOGY — Navigating the Future Together</title>
+<meta name="description" content="AIBEET Technology delivers cutting-edge IT consulting, B2B lead generation, and software development services tailored to grow your business."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+/* ================================================================
+   AIBEET TECHNOLOGY — Design System
+   Aesthetic: Refined Luxury Tech — dark navy base, gold accents,
+   clean geometric grids, editorial typography
+================================================================ */
+
+:root {
+  --navy:       #0B0E1A;
+  --navy-mid:   #111627;
+  --navy-light: #1A2035;
+  --gold:       #C8A96E;
+  --gold-light: #E2C998;
+  --gold-dark:  #9A7A48;
+  --white:      #FAFAFA;
+  --off-white:  #EEF0F5;
+  --muted:      #8A91A8;
+  --border:     rgba(200,169,110,0.15);
+  --border-sub: rgba(255,255,255,0.07);
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  --radius-sm:  6px;
+  --radius:     12px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+
+  --shadow-card: 0 4px 32px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 40px rgba(200,169,110,0.12);
+
+  --transition: 0.28s cubic-bezier(0.4,0,0.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--navy);
+  color: var(--off-white);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Typography ── */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  color: var(--white);
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Layout Utilities ── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section { padding: 100px 0; }
+.section-sm { padding: 60px 0; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: var(--navy);
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200,169,110,0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+}
+.btn-outline:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: rgba(255,255,255,0.06);
+  color: var(--white);
+  border: 1.5px solid var(--border-sub);
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--navy-light);
+  border: 1px solid var(--border-sub);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: var(--transition);
+}
+.card:hover {
+  border-color: var(--border);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-4px);
+}
+
+/* ── Gold Divider ── */
+.gold-line {
+  display: inline-block;
+  width: 48px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+/* ================================================================
+   NAVIGATION
+================================================================ */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0;
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  background: rgba(11,14,26,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-sub);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-mark {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+.nav-logo-text span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+}
+
+.nav-links a, .nav-links button {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-links a:hover, .nav-links button:hover,
+.nav-links a.active {
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+}
+
+/* Dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 240px;
+  background: var(--navy-mid);
+  border: 1px solid var(--border-sub);
+  border-radius: var(--radius);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: var(--transition);
+  box-shadow: var(--shadow-card);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.dropdown-menu a:hover {
+  background: rgba(200,169,110,0.08);
+  color: var(--gold);
+}
+
+.dropdown-icon {
+  width: 28px;
+  height: 28px;
+  background: rgba(200,169,110,0.1);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Mobile nav */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 76px; left: 0; right: 0; bottom: 0;
+  background: var(--navy-mid);
+  z-index: 999;
+  overflow-y: auto;
+  padding: 24px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-nav.open { display: flex; }
+
+.mobile-nav a {
+  color: var(--off-white);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-sub);
+}
+
+.mobile-nav a:hover { color: var(--gold); }
+
+/* ================================================================
+   HERO
+================================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 76px;
+  overflow: hidden;
+}
+
+/* Geometric background grid */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(200,169,110,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 60% 30%, rgba(200,169,110,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(17,22,39,0.9) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  z-index: 0;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,169,110,0.07) 0%, transparent 70%);
+  top: 50%;
+  right: -100px;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(200,169,110,0.1);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 6px 14px;
+  margin-bottom: 28px;
+}
+
+.hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero-badge-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+.hero-title {
+  font-size: clamp(40px, 5.5vw, 68px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin-bottom: 24px;
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 44px;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 52px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+}
+
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.hero-divider {
+  width: 1px;
+  background: var(--border-sub);
+  align-self: stretch;
+}
+
+/* Hero visual */
+.hero-visual {
+  position: relative;
+}
+
+.hero-card-stack {
+  position: relative;
+  height: 420px;
+}
+
+.hero-card-main {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+}
+
+.hero-card-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.service-list-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-sub);
+  transition: var(--transition);
+}
+
+.service-list-item:last-child { border-bottom: none; }
+
+.service-list-item:hover .sli-arrow { transform: translateX(4px); }
+
+.sli-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(200,169,110,0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.sli-text {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--off-white);
+}
+
+.sli-arrow {
+  color: var(--gold);
+  font-size: 12px;
+  transition: var(--transition);
+}
+
+/* Floating accent cards */
+.float-card {
+  position: absolute;
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-card);
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-card.fc-1 {
+  bottom: -20px;
+  left: -30px;
+  animation-delay: 0s;
+}
+
+.float-card.fc-2 {
+  top: 40px;
+  right: -40px;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-card-icon { font-size: 22px; }
+.float-card-content {}
+.float-card-num {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+.float-card-label { font-size: 11px; color: var(--muted); }
+
+/* ================================================================
+   BRAND STRIP
+================================================================ */
+.brand-strip {
+  padding: 36px 0;
+  border-top: 1px solid var(--border-sub);
+  border-bottom: 1px solid var(--border-sub);
+  background: rgba(17,22,39,0.6);
+  overflow: hidden;
+}
+
+.brand-strip-inner {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.brand-strip-label {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.brand-logo-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.brand-logo-placeholder:hover { opacity: 0.8; }
+
+.blp-shape {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--muted);
+}
+
+.blp-text {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+/* ================================================================
+   SERVICES SECTION
+================================================================ */
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 64px;
+}
+
+.section-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 12px 0 16px;
+}
+
+.section-sub {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.service-card {
+  background: var(--navy-light);
+  border: 1px solid var(--border-sub);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  border-color: var(--border);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-glow);
+}
+
+.service-card:hover::before { opacity: 1; }
+
+.service-icon-wrap {
+  width: 52px;
+  height: 52px;
+  background: rgba(200,169,110,0.1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 24px;
+  transition: var(--transition);
+}
+
+.service-card:hover .service-icon-wrap {
+  background: rgba(200,169,110,0.18);
+}
+
+.service-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.service-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.service-link:hover { gap: 10px; }
+
+/* ================================================================
+   ABOUT / WHY US
+================================================================ */
+.about-section {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border-sub);
+  border-bottom: 1px solid var(--border-sub);
+}
+
+.about-image-wrap {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  height: 480px;
+  background: var(--navy-light);
+  border: 1px solid var(--border-sub);
+}
+
+.about-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--navy-light) 0%, #1e2540 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-geometric {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.ag-1 { width: 300px; height: 300px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.ag-2 { width: 200px; height: 200px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(200,169,110,0.04); }
+.ag-3 { width: 100px; height: 100px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(200,169,110,0.08); }
+
+.about-center-icon {
+  position: relative;
+  z-index: 1;
+  font-size: 60px;
+}
+
+.about-badge {
+  position: absolute;
+  bottom: 24px; left: 24px;
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-badge-num {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+.about-badge-text { font-size: 13px; color: var(--muted); }
+
+.feature-list { display: flex; flex-direction: column; gap: 20px; margin-top: 36px; }
+
+.feature-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.feature-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(200,169,110,0.1);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.feature-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.feature-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+/* ================================================================
+   STATS
+================================================================ */
+.stats-section {
+  background: linear-gradient(135deg, rgba(200,169,110,0.06) 0%, rgba(200,169,110,0.02) 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--border-sub);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.stat-item {
+  background: var(--navy-mid);
+  padding: 48px 32px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.stat-item:hover { background: var(--navy-light); }
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ================================================================
+   B2B LEAD GEN SECTION
+================================================================ */
+.b2b-section {}
+
+.b2b-card-large {
+  background: linear-gradient(135deg, var(--navy-light) 0%, #162035 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.b2b-card-large::after {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,169,110,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.b2b-sub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.b2b-mini-card {
+  background: rgba(200,169,110,0.06);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.b2b-mini-icon { font-size: 24px; margin-bottom: 12px; }
+.b2b-mini-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.b2b-mini-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* ================================================================
+   INTEGRATIONS
+================================================================ */
+.integrations-section {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border-sub);
+  border-bottom: 1px solid var(--border-sub);
+}
+
+.integration-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.integration-item {
+  background: var(--navy-light);
+  border: 1px solid var(--border-sub);
+  border-radius: var(--radius);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.integration-item:hover {
+  border-color: var(--border);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.integration-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.integration-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ================================================================
+   CTA SECTION
+================================================================ */
+.cta-section {
+  padding: 100px 0;
+}
+
+.cta-inner {
+  background: linear-gradient(135deg, rgba(200,169,110,0.10) 0%, rgba(200,169,110,0.03) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 80px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-inner::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%; transform: translateX(-50%);
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,169,110,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-title {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 12px 0 20px;
+}
+
+.cta-sub {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 40px;
+  line-height: 1.65;
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ================================================================
+   FAQ
+================================================================ */
+.faq-section {}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.faq-sidebar-title {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 12px 0 20px;
+}
+
+.faq-sidebar-sub {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+
+.faq-list { display: flex; flex-direction: column; gap: 2px; }
+
+.faq-item {
+  background: var(--navy-light);
+  border: 1px solid var(--border-sub);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-item.open {
+  border-color: var(--border);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  text-align: left;
+  transition: var(--transition);
+}
+
+.faq-question:hover { color: var(--gold); }
+
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(200,169,110,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--gold);
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--gold); color: var(--navy); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+.faq-item.open .faq-answer { max-height: 200px; }
+
+.faq-answer-inner {
+  padding: 0 24px 22px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ================================================================
+   TESTIMONIALS
+================================================================ */
+.testimonials-section {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border-sub);
+  border-bottom: 1px solid var(--border-sub);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.testimonial-card {
+  background: var(--navy-light);
+  border: 1px solid var(--border-sub);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  transition: var(--transition);
+}
+
+.testimonial-card:hover {
+  border-color: var(--border);
+  transform: translateY(-4px);
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 20px;
+}
+
+.star { color: var(--gold); font-size: 14px; }
+
+.testimonial-text {
+  font-size: 15px;
+  color: var(--off-white);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-sub);
+}
+
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.author-role { font-size: 12px; color: var(--muted); }
+
+/* ================================================================
+   CONTACT / SUPPORT
+================================================================ */
+.contact-section {}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-info-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-sub);
+}
+
+.contact-info-icon {
+  width: 42px;
+  height: 42px;
+  background: rgba(200,169,110,0.1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.contact-info-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; letter-spacing: 0.05em; text-transform: uppercase; }
+.contact-info-value { font-family: var(--font-display); font-size: 14px; font-weight: 500; color: var(--off-white); }
+.contact-info-value a { color: inherit; text-decoration: none; transition: var(--transition); }
+.contact-info-value a:hover { color: var(--gold); }
+
+.contact-form {
+  background: var(--navy-light);
+  border: 1px solid var(--border-sub);
+  border-radius: var(--radius-xl);
+  padding: 48px;
+}
+
+.form-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.form-sub { font-size: 14px; color: var(--muted); margin-bottom: 32px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.form-group { margin-bottom: 20px; }
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  background: var(--navy-mid);
+  border: 1px solid var(--border-sub);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--white);
+  outline: none;
+  transition: var(--transition);
+  appearance: none;
+}
+
+.form-input::placeholder, .form-textarea::placeholder { color: var(--muted); }
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--gold);
+  background: rgba(11,14,26,0.8);
+  box-shadow: 0 0 0 3px rgba(200,169,110,0.1);
+}
+
+.form-textarea { resize: vertical; min-height: 120px; }
+
+.form-note { font-size: 12px; color: var(--muted); margin-top: 16px; text-align: center; }
+
+/* WhatsApp button */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 900;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 28px rgba(37,211,102,0.5);
+}
+
+.whatsapp-fab svg { width: 28px; height: 28px; fill: white; }
+
+/* ================================================================
+   FOOTER
+================================================================ */
+.footer {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border-sub);
+  padding: 80px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--border-sub);
+}
+
+.footer-brand-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 16px 0 28px;
+  max-width: 280px;
+}
+
+.footer-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: var(--transition);
+}
+
+.footer-contact-link:hover { color: var(--gold); }
+
+.footer-col-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a {
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+.footer-links a:hover { color: var(--white); }
+
+/* Newsletter */
+.newsletter-input-wrap {
+  display: flex;
+  gap: 0;
+  margin-top: 4px;
+}
+
+.newsletter-input {
+  flex: 1;
+  background: var(--navy);
+  border: 1px solid var(--border-sub);
+  border-right: none;
+  border-radius: var(--radius) 0 0 var(--radius);
+  padding: 13px 16px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--white);
+  outline: none;
+  transition: var(--transition);
+}
+
+.newsletter-input::placeholder { color: var(--muted); }
+.newsletter-input:focus { border-color: var(--gold); }
+
+.newsletter-btn {
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 13px 18px;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.newsletter-btn:hover { background: var(--gold-light); }
+
+.footer-bottom {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-sub);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.social-btn:hover {
+  background: rgba(200,169,110,0.1);
+  border-color: var(--border);
+  color: var(--gold);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-legal a {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-legal a:hover { color: var(--white); }
+
+/* ================================================================
+   PAGE HEADER (inner pages)
+================================================================ */
+.page-hero {
+  padding: 140px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 0%, rgba(200,169,110,0.08) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.page-hero-content { position: relative; z-index: 1; }
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.breadcrumb a { color: var(--muted); text-decoration: none; transition: var(--transition); }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb span { color: var(--gold); }
+
+.page-title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.page-subtitle {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+@media (max-width: 1100px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .integration-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+
+  .hero-content { grid-template-columns: 1fr; gap: 48px; }
+  .hero-visual { display: none; }
+  .hero-title { font-size: 40px; }
+
+  .grid-2 { grid-template-columns: 1fr; gap: 48px; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+
+  .b2b-card-large { grid-template-columns: 1fr; padding: 40px; }
+  .b2b-sub-grid { grid-template-columns: 1fr; }
+
+  .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+
+  .section { padding: 64px 0; }
+  .cta-inner { padding: 48px 32px; }
+  .contact-form { padding: 32px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .integration-grid { grid-template-columns: repeat(3, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-stats { flex-direction: column; gap: 16px; }
+  .hero-divider { display: none; }
+}
+
+/* ================================================================
+   SCROLL ANIMATIONS
+================================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+</style>
 </head>
 <body>
-    <h1>Hello World this is my first web page.</h0>
+
+<!-- ================================================================
+     NAVBAR
+================================================================ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-mark">A</div>
+      <span class="nav-logo-text">AI<span>BEET</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="active">Home</a></li>
+
+      <li class="nav-dropdown">
+        <button>IT Services ▾</button>
+        <ul class="dropdown-menu">
+          <li><a href="/it-services/webapp">
+            <span class="dropdown-icon">🌐</span>Web App Development
+          </a></li>
+          <li><a href="/it-services/androidapp">
+            <span class="dropdown-icon">📱</span>Android App Development
+          </a></li>
+          <li><a href="/it-services/customsoftware">
+            <span class="dropdown-icon">⚙️</span>Custom Software Development
+          </a></li>
+          <li><a href="/it-services/uiux">
+            <span class="dropdown-icon">🎨</span>UI/UX Development
+          </a></li>
+          <li><a href="/it-services/qatesting">
+            <span class="dropdown-icon">🧪</span>QA & Testing
+          </a></li>
+          <li><a href="/it-services/hiretech">
+            <span class="dropdown-icon">👥</span>Hire Tech Team
+          </a></li>
+        </ul>
+      </li>
+
+      <li class="nav-dropdown">
+        <button>B2B Lead Gen ▾</button>
+        <ul class="dropdown-menu">
+          <li><a href="/b2b-lead/leadgeneration">
+            <span class="dropdown-icon">📈</span>Lead Generation
+          </a></li>
+          <li><a href="/b2b-lead/appointmentsetting">
+            <span class="dropdown-icon">📅</span>Appointment Setting
+          </a></li>
+        </ul>
+      </li>
+
+      <li><a href="/aboutus">About Us</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="https://calendly.com/suresh-aibeet/30min?month=2024-07" target="_blank" class="btn btn-ghost" style="padding:10px 20px;font-size:13px;">Schedule Call</a>
+      <a href="/support" class="btn btn-primary" style="padding:10px 22px;font-size:13px;">Contact Us</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="/">Home</a>
+  <a href="/it-services/webapp">Web App Development</a>
+  <a href="/it-services/androidapp">Android App Development</a>
+  <a href="/it-services/customsoftware">Custom Software</a>
+  <a href="/it-services/uiux">UI/UX Development</a>
+  <a href="/it-services/qatesting">QA & Testing</a>
+  <a href="/it-services/hiretech">Hire Tech Team</a>
+  <a href="/b2b-lead/leadgeneration">Lead Generation</a>
+  <a href="/b2b-lead/appointmentsetting">Appointment Setting</a>
+  <a href="/aboutus">About Us</a>
+  <a href="/blog">Blog</a>
+  <a href="/support" style="color:var(--gold);">Contact Us →</a>
+</div>
+
+<!-- ================================================================
+     HERO
+================================================================ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span class="hero-badge-text">AI-Powered IT Consulting</span>
+      </div>
+
+      <h1 class="hero-title">
+        Transforming<br/>
+        Challenges into<br/>
+        <em>Opportunities</em>
+      </h1>
+
+      <p class="hero-subtitle">
+        We specialize in delivering cutting-edge IT consulting services tailored to your business. Our experts provide strategic solutions that drive growth, efficiency, and competitive advantage.
+      </p>
+
+      <div class="hero-actions">
+        <a href="/support" class="btn btn-primary">
+          Get Started
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M10.4767 6.167L6.00668 1.697L7.18501 0.5187L13.6667 7L7.18501 13.482L6.00668 12.3037L10.4767 7.8337H0.3333V6.167H10.4767Z"/></svg>
+        </a>
+        <a href="https://calendly.com/suresh-aibeet/30min?month=2024-07" target="_blank" class="btn btn-outline">Schedule a Call</a>
+        <a href="mailto:info@aibeeettechnology.com" class="btn btn-ghost">Drop a Mail 📧</a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">500K+</div>
+          <div class="hero-stat-label">Clients Worldwide</div>
+        </div>
+        <div class="hero-divider"></div>
+        <div>
+          <div class="hero-stat-num">1M+</div>
+          <div class="hero-stat-label">Downloads</div>
+        </div>
+        <div class="hero-divider"></div>
+        <div>
+          <div class="hero-stat-num">865</div>
+          <div class="hero-stat-label">Awards Won</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <div class="hero-card-main">
+          <div class="hero-card-title">Our Core Services</div>
+
+          <div class="service-list-item">
+            <div class="sli-icon">🌐</div>
+            <span class="sli-text">Web App Development</span>
+            <span class="sli-arrow">→</span>
+          </div>
+          <div class="service-list-item">
+            <div class="sli-icon">📱</div>
+            <span class="sli-text">Android App Development</span>
+            <span class="sli-arrow">→</span>
+          </div>
+          <div class="service-list-item">
+            <div class="sli-icon">⚙️</div>
+            <span class="sli-text">Custom Software</span>
+            <span class="sli-arrow">→</span>
+          </div>
+          <div class="service-list-item">
+            <div class="sli-icon">📈</div>
+            <span class="sli-text">B2B Lead Generation</span>
+            <span class="sli-arrow">→</span>
+          </div>
+          <div class="service-list-item">
+            <div class="sli-icon">👥</div>
+            <span class="sli-text">Hire Tech Team</span>
+            <span class="sli-arrow">→</span>
+          </div>
+        </div>
+
+        <div class="float-card fc-1">
+          <div class="float-card-icon">⭐</div>
+          <div class="float-card-content">
+            <div class="float-card-num">4.9/5</div>
+            <div class="float-card-label">Client Rating</div>
+          </div>
+        </div>
+
+        <div class="float-card fc-2">
+          <div class="float-card-icon">🚀</div>
+          <div class="float-card-content">
+            <div class="float-card-num">200+</div>
+            <div class="float-card-label">Projects Delivered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     BRAND STRIP
+================================================================ -->
+<div class="brand-strip">
+  <div class="brand-strip-inner">
+    <!-- Duplicated for infinite scroll -->
+    <span class="brand-strip-label">TRUSTED BY</span>
+    <div class="brand-logo-placeholder"><div class="blp-shape" style="background:#4A90D9"></div><span class="blp-text">Cerebro</span></div>
+    <div class="brand-logo-placeholder"><div class="blp-shape" style="background:#27AE60"></div><span class="blp-text">GreenEarth</span></div>
+    <div class="brand-logo-placeholder"><div class="blp-shape" style="background:#E74C3C"></div><span class="blp-text">EuroTech</span></div>
+    <div class="brand-logo-placeholder"><div class="blp-shape" style="background:#8E44AD"></div><span class="blp-text">InnoLife</span></div>
+    <div class="brand-logo-placeholder"><div class="blp-shape" style="background:#E67E22"></div><span class="blp-text">DataCore</span></div>
+    <div class="brand-logo-placeholder"><div class="blp-shape" style="background:#16A085"></div><span class="blp-text">CloudSync</span></div>
+    <!-- Duplicate for seamless loop -->
+    <span class="brand-strip-label">TRUSTED BY</span>
+    <div class="brand-logo-placeholder"><div class="blp-shape" style="background:#4A90D9"></div><span class="blp-text">Cerebro</span></div>
+    <div class="brand-logo-placeholder"><div class="blp-shape" style="background:#27AE60"></div><span class="blp-text">GreenEarth</span></div>
+    <div class="brand-logo-placeholder"><div class="blp-shape" style="background:#E74C3C"></div><span class="blp-text">EuroTech</span></div>
+    <div class="brand-logo-placeholder"><div class="blp-shape" style="background:#8E44AD"></div><span class="blp-text">InnoLife</span></div>
+    <div class="brand-logo-placeholder"><div class="blp-shape" style="background:#E67E22"></div><span class="blp-text">DataCore</span></div>
+    <div class="brand-logo-placeholder"><div class="blp-shape" style="background:#16A085"></div><span class="blp-text">CloudSync</span></div>
+  </div>
+</div>
+
+<!-- ================================================================
+     IT SERVICES
+================================================================ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">What We Do</div>
+      <h2 class="section-title">End-to-End IT Services<br/>Built to Scale</h2>
+      <p class="section-sub">From bespoke software to AI-powered B2B solutions — we architect the technology backbone your business needs to thrive.</p>
+    </div>
+
+    <div class="grid-3">
+      <a href="/it-services/webapp" class="service-card reveal delay-1">
+        <div class="service-icon-wrap">🌐</div>
+        <div class="service-name">Web App Development</div>
+        <div class="service-desc">High-performance, scalable web applications built with modern frameworks. From MVPs to enterprise platforms.</div>
+        <span class="service-link">Learn more →</span>
+      </a>
+
+      <a href="/it-services/androidapp" class="service-card reveal delay-2">
+        <div class="service-icon-wrap">📱</div>
+        <div class="service-name">Android App Development</div>
+        <div class="service-desc">Native and cross-platform Android applications with polished UX and robust performance at every scale.</div>
+        <span class="service-link">Learn more →</span>
+      </a>
+
+      <a href="/it-services/customsoftware" class="service-card reveal delay-3">
+        <div class="service-icon-wrap">⚙️</div>
+        <div class="service-name">Custom Software Development</div>
+        <div class="service-desc">Tailored software solutions engineered to your unique workflows, integrations, and business requirements.</div>
+        <span class="service-link">Learn more →</span>
+      </a>
+
+      <a href="/it-services/uiux" class="service-card reveal delay-1">
+        <div class="service-icon-wrap">🎨</div>
+        <div class="service-name">UI/UX Development</div>
+        <div class="service-desc">Intuitive, beautiful interfaces that convert. We design and build experiences users actually love to use.</div>
+        <span class="service-link">Learn more →</span>
+      </a>
+
+      <a href="/it-services/qatesting" class="service-card reveal delay-2">
+        <div class="service-icon-wrap">🧪</div>
+        <div class="service-name">QA & Testing</div>
+        <div class="service-desc">Comprehensive quality assurance to ensure your software ships bug-free, secure, and ready for production.</div>
+        <span class="service-link">Learn more →</span>
+      </a>
+
+      <a href="/it-services/hiretech" class="service-card reveal delay-3">
+        <div class="service-icon-wrap">👥</div>
+        <div class="service-name">Hire Tech Team</div>
+        <div class="service-desc">Scale your team instantly with vetted senior engineers, designers, and PMs ready to contribute from day one.</div>
+        <span class="service-link">Learn more →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     STATS
+================================================================ -->
+<section class="stats-section section-sm">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal delay-1">
+        <div class="stat-number">500K</div>
+        <div class="stat-label">Worldwide Clients</div>
+      </div>
+      <div class="stat-item reveal delay-2">
+        <div class="stat-number">1M+</div>
+        <div class="stat-label">Downloads</div>
+      </div>
+      <div class="stat-item reveal delay-3">
+        <div class="stat-number">865</div>
+        <div class="stat-label">Awards Won</div>
+      </div>
+      <div class="stat-item reveal delay-4">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     ABOUT SECTION
+================================================================ -->
+<section class="about-section section">
+  <div class="container">
+    <div class="grid-2">
+      <div class="about-image-wrap reveal-left">
+        <div class="about-image-placeholder">
+          <div class="about-geometric ag-1"></div>
+          <div class="about-geometric ag-2"></div>
+          <div class="about-geometric ag-3"></div>
+          <div class="about-center-icon">💡</div>
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-num">10+</div>
+          <div class="about-badge-text">Years transforming<br/>businesses globally</div>
+        </div>
+      </div>
+
+      <div class="reveal-right">
+        <div class="gold-line"></div>
+        <div class="label">About AIBEET</div>
+        <h2 class="section-title" style="margin-top:12px;">Bring Your Idea<br/>To Reality</h2>
+        <p style="color:var(--muted);font-size:15px;line-height:1.7;margin:20px 0 32px;">We pride ourselves on providing tailored IT solutions designed to meet the specific needs of our clients. Every business is unique — that's why we take a personalized approach to software development, consulting, and lead generation.</p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-num">01</div>
+            <div>
+              <div class="feature-title">Sales Qualified Leads</div>
+              <div class="feature-desc">We deliver only the most relevant, sales-ready prospects to accelerate your pipeline and close rates.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-num">02</div>
+            <div>
+              <div class="feature-title">Dedicated Tech Team</div>
+              <div class="feature-desc">A focused team of engineers aligned with your goals, culture, and delivery standards.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-num">03</div>
+            <div>
+              <div class="feature-title">AI-First Approach</div>
+              <div class="feature-desc">Leveraging cutting-edge AI technology to build smarter, faster, and more competitive products.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     B2B LEAD GENERATION
+================================================================ -->
+<section class="section b2b-section" id="b2b">
+  <div class="container">
+    <div class="b2b-card-large reveal">
+      <div>
+        <div class="label">B2B Lead Generation</div>
+        <h2 class="section-title" style="margin:12px 0 20px;">Appointment<br/>Setting at Scale</h2>
+        <p style="color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:32px;">Our certified Sales Development Representatives specialize in nurturing prospects and qualifying them based on their responses. Our SDRs own the pipeline and are committed to hitting your revenue targets.</p>
+
+        <div class="b2b-sub-grid">
+          <div class="b2b-mini-card">
+            <div class="b2b-mini-icon">📈</div>
+            <div class="b2b-mini-title">Lead Generation</div>
+            <div class="b2b-mini-desc">Precision-targeted outreach that fills your pipeline with qualified decision-makers.</div>
+          </div>
+          <div class="b2b-mini-card">
+            <div class="b2b-mini-icon">📅</div>
+            <div class="b2b-mini-title">Appointment Setting</div>
+            <div class="b2b-mini-desc">We set, confirm, and hand off booked meetings so your team focuses on closing.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="/b2b-lead/leadgeneration" class="btn btn-primary">Lead Generation</a>
+          <a href="/b2b-lead/appointmentsetting" class="btn btn-outline">Appointment Setting</a>
+        </div>
+      </div>
+
+      <div style="position:relative;">
+        <div style="background:var(--navy);border:1px solid var(--border-sub);border-radius:var(--radius-lg);padding:32px;">
+          <div style="font-family:var(--font-display);font-size:12px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:24px;">Pipeline Performance</div>
+
+          <!-- Mini chart visual -->
+          <div style="display:flex;align-items:flex-end;gap:8px;height:100px;margin-bottom:16px;">
+            <div style="flex:1;background:rgba(200,169,110,0.15);border-radius:4px 4px 0 0;height:40%;"></div>
+            <div style="flex:1;background:rgba(200,169,110,0.2);border-radius:4px 4px 0 0;height:60%;"></div>
+            <div style="flex:1;background:rgba(200,169,110,0.3);border-radius:4px 4px 0 0;height:50%;"></div>
+            <div style="flex:1;background:rgba(200,169,110,0.45);border-radius:4px 4px 0 0;height:75%;"></div>
+            <div style="flex:1;background:rgba(200,169,110,0.6);border-radius:4px 4px 0 0;height:65%;"></div>
+            <div style="flex:1;background:var(--gold);border-radius:4px 4px 0 0;height:100%;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);">
+            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+          </div>
+
+          <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div style="background:rgba(200,169,110,0.06);border-radius:8px;padding:16px;">
+              <div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--gold);">340%</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:4px;">Pipeline Growth</div>
+            </div>
+            <div style="background:rgba(200,169,110,0.06);border-radius:8px;padding:16px;">
+              <div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--gold);">87%</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:4px;">Show Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     INTEGRATIONS
+================================================================ -->
+<section class="integrations-section section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Integrations</div>
+      <h2 class="section-title">Remotely Maintain Your<br/>Data, Anywhere, Anytime</h2>
+      <p class="section-sub">Our communication services help businesses connect with customers using powerful digital channels and integrations.</p>
+    </div>
+
+    <div class="integration-grid">
+      <div class="integration-item reveal delay-1">
+        <div class="integration-icon" style="background:rgba(66,133,244,0.15);">📊</div>
+        <span class="integration-name">Analytics</span>
+      </div>
+      <div class="integration-item reveal delay-2">
+        <div class="integration-icon" style="background:rgba(234,67,53,0.15);">☁️</div>
+        <span class="integration-name">Cloud</span>
+      </div>
+      <div class="integration-item reveal delay-3">
+        <div class="integration-icon" style="background:rgba(251,188,4,0.15);">⚡</div>
+        <span class="integration-name">Automation</span>
+      </div>
+      <div class="integration-item reveal delay-4">
+        <div class="integration-icon" style="background:rgba(52,168,83,0.15);">🔒</div>
+        <span class="integration-name">Security</span>
+      </div>
+      <div class="integration-item reveal delay-1">
+        <div class="integration-icon" style="background:rgba(200,169,110,0.15);">🤖</div>
+        <span class="integration-name">AI/ML</span>
+      </div>
+      <div class="integration-item reveal delay-2">
+        <div class="integration-icon" style="background:rgba(156,39,176,0.15);">📡</div>
+        <span class="integration-name">APIs</span>
+      </div>
+      <div class="integration-item reveal delay-3">
+        <div class="integration-icon" style="background:rgba(0,150,136,0.15);">💳</div>
+        <span class="integration-name">Payments</span>
+      </div>
+      <div class="integration-item reveal delay-4">
+        <div class="integration-icon" style="background:rgba(33,150,243,0.15);">📧</div>
+        <span class="integration-name">Email</span>
+      </div>
+      <div class="integration-item reveal delay-1">
+        <div class="integration-icon" style="background:rgba(255,87,34,0.15);">📲</div>
+        <span class="integration-name">SMS</span>
+      </div>
+      <div class="integration-item reveal delay-2">
+        <div class="integration-icon" style="background:rgba(63,81,181,0.15);">🗄️</div>
+        <span class="integration-name">Database</span>
+      </div>
+      <div class="integration-item reveal delay-3">
+        <div class="integration-icon" style="background:rgba(0,188,212,0.15);">🔄</div>
+        <span class="integration-name">Sync</span>
+      </div>
+      <div class="integration-item reveal delay-4">
+        <div class="integration-icon" style="background:rgba(76,175,80,0.15);">📦</div>
+        <span class="integration-name">DevOps</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     CTA SECTION
+================================================================ -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="label">Ready to Start?</div>
+      <h2 class="cta-title">Join With Us Today &amp;<br/>Increase Your Productivity</h2>
+      <p class="cta-sub">Navigating the Future of Technology Together. Let's build something extraordinary.</p>
+      <div class="cta-actions">
+        <a href="https://calendly.com/suresh-aibeet/30min?month=2024-07" target="_blank" class="btn btn-primary">
+          Schedule a Call
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M10.4767 6.167L6.00668 1.697L7.18501 0.5187L13.6667 7L7.18501 13.482L6.00668 12.3037L10.4767 7.8337H0.3333V6.167H10.4767Z"/></svg>
+        </a>
+        <a href="/support" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FAQ
+================================================================ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="reveal-left">
+        <div class="label">FAQ</div>
+        <h2 class="faq-sidebar-title">Frequently<br/>Asked<br/>Questions</h2>
+        <p class="faq-sidebar-sub">Have more questions? We'd love to hear from you — our team typically responds within 24 hours.</p>
+        <a href="/support" class="btn btn-outline">Ask a Question →</a>
+      </div>
+
+      <div class="faq-list reveal-right">
+        <div class="faq-item open">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What innovative solutions does AIBEET provide?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">At AIBEET, we specialize in cutting-edge AI technology designed to simplify your life. From smart home gadgets to personalized AI assistants, our products are crafted to enhance everyday experiences and drive business growth.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is AIBEET's technology secure?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Security is our top priority. We utilize industry-leading security practices, encryption protocols, and regular vulnerability assessments to safeguard your data and ensure compliance with all relevant regulations.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How does AIBEET ensure data security for clients?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Data security is foundational to how we operate. AIBEET employs industry-leading encryption protocols, regular vulnerability assessments, strict access controls, and follows SOC 2 compliance standards across all client engagements.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How quickly can AIBEET scale a tech team for my project?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We can typically onboard pre-vetted senior engineers within 1–2 weeks. Our network of talent is ready to contribute immediately, reducing the lengthy hiring cycles that slow most companies down.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What industries do you specialize in?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We work across SaaS, FinTech, HealthTech, eCommerce, and enterprise software. Our cross-industry experience means we bring battle-tested patterns and best practices regardless of your vertical.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     TESTIMONIALS
+================================================================ -->
+<section class="testimonials-section section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Testimonials</div>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-sub">We're passionate about empowering businesses with AI. Don't just take our word for it.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal delay-1">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-text">"AIBEET's AI platform has been instrumental in helping us streamline our data analysis process. The ability to automate tasks and generate insights has allowed us to focus on more strategic initiatives. Highly recommend!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">DS</div>
+          <div>
+            <div class="author-name">Devid Smith</div>
+            <div class="author-role">Founder @ Cerebro</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal delay-2">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-text">"AIBEET's AI-powered sustainability solutions have been a game-changer for our business. We've significantly reduced our environmental impact while improving operational efficiency. A true win-win partnership!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#2ECC71,#27AE60);">JA</div>
+          <div>
+            <div class="author-name">Jhon Abraham</div>
+            <div class="author-role">Founder @ GreenEarth</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal delay-3">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-text">"AIBEET's AI marketing tools helped us personalize the customer experience and reach new audiences. We've seen a dramatic increase in engagement and conversions since implementing their solutions."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#E74C3C,#C0392B);">DS</div>
+          <div>
+            <div class="author-name">Devid Smith</div>
+            <div class="author-role">Founder @ EuroTech</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal delay-4">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-text">"AIBEET's AI is helping us revolutionize healthcare diagnostics. Their technology allows us to analyze medical data with unprecedented accuracy, leading to earlier diagnoses and improved patient outcomes."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#9B59B6,#8E44AD);">JA</div>
+          <div>
+            <div class="author-name">Jhon Abraham</div>
+            <div class="author-role">Founder @ InnoLife</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     CONTACT FORM (replaces /support page inline preview)
+================================================================ -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <div class="gold-line"></div>
+        <div class="label">Get in Touch</div>
+        <h2 class="section-title" style="margin:12px 0 16px;">Let's Build<br/>Something Great</h2>
+        <p style="color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:36px;">Ready to transform your business with cutting-edge technology? Reach out and our team will get back to you within 24 hours.</p>
+
+        <div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">✉️</div>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value">
+                <a href="mailto:info@aibeeettechnology.com">info@aibeeettechnology.com</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📧</div>
+            <div>
+              <div class="contact-info-label">Secondary Email</div>
+              <div class="contact-info-value">
+                <a href="mailto:krishna.techsf@gmail.com">krishna.techsf@gmail.com</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">💬</div>
+            <div>
+              <div class="contact-info-label">WhatsApp</div>
+              <div class="contact-info-value">
+                <a href="https://wa.me/+919704563888" target="_blank">+91 97045 63888</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📅</div>
+            <div>
+              <div class="contact-info-label">Schedule a Call</div>
+              <div class="contact-info-value">
+                <a href="https://calendly.com/suresh-aibeet/30min?month=2024-07" target="_blank">Book on Calendly →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal-right">
+        <div class="form-title">Send Us a Message</div>
+        <div class="form-sub">Fill out the form and we'll respond within 24 hours.</div>
+
+        <form action="#" onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-input" placeholder="John" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-input" placeholder="Smith" required/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Work Email</label>
+            <input type="email" class="form-input" placeholder="john@company.com" required/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Service Interested In</label>
+            <select class="form-select form-input">
+              <option value="">Select a service...</option>
+              <option>Web App Development</option>
+              <option>Android App Development</option>
+              <option>Custom Software Development</option>
+              <option>UI/UX Development</option>
+              <option>QA & Testing</option>
+              <option>Hire Tech Team</option>
+              <option>Lead Generation</option>
+              <option>Appointment Setting</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" placeholder="Tell us about your project or requirement..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+            Send Message
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M10.4767 6.167L6.00668 1.697L7.18501 0.5187L13.6667 7L7.18501 13.482L6.00668 12.3037L10.4767 7.8337H0.3333V6.167H10.4767Z"/></svg>
+          </button>
+          <p class="form-note">By submitting, you agree to our Privacy Policy. No spam, ever.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+================================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="reveal">
+        <a href="/" class="nav-logo" style="margin-bottom:16px;display:inline-flex;">
+          <div class="nav-logo-mark">A</div>
+          <span class="nav-logo-text">AI<span>BEET</span></span>
+        </a>
+        <p class="footer-brand-desc">Navigating the Future of Technology Together. We deliver AI-powered IT solutions that drive real business growth.</p>
+        <div style="margin-top:4px;">
+          <a href="mailto:info@aibeeettechnology.com" class="footer-contact-link">✉️ info@aibeeettechnology.com</a>
+          <a href="mailto:krishna.techsf@gmail.com" class="footer-contact-link">✉️ krishna.techsf@gmail.com</a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="reveal delay-1">
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/it-services/webapp">IT Services</a></li>
+          <li><a href="/aboutus">About Us</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/support">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="reveal delay-2">
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="/it-services/webapp">Web Development</a></li>
+          <li><a href="/it-services/androidapp">Android Apps</a></li>
+          <li><a href="/it-services/customsoftware">Custom Software</a></li>
+          <li><a href="/b2b-lead/leadgeneration">Lead Generation</a></li>
+          <li><a href="/it-services/hiretech">Hire Tech Team</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="reveal delay-3">
+        <div class="footer-col-title">Stay Updated</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px;">Subscribe to receive the latest insights and updates from AIBEET.</p>
+        <div class="newsletter-input-wrap">
+          <input type="email" class="newsletter-input" placeholder="Email address"/>
+          <button class="newsletter-btn" onclick="handleNewsletter(event)">→</button>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:10px;">No spam. Unsubscribe any time.</p>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 AiBeet Technology. All rights reserved.</p>
+
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="/support">Support</a>
+      </div>
+
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Twitter">𝕏</a>
+        <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+        <a href="#" class="social-btn" aria-label="Behance">Bē</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/+919704563888" target="_blank" rel="noopener noreferrer" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+  </svg>
+</a>
+
+<!-- ================================================================
+     JAVASCRIPT
+================================================================ -->
+<script>
+// ── Navbar scroll behavior ──
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+// ── Mobile nav toggle ──
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+let mobileOpen = false;
+
+hamburger.addEventListener('click', () => {
+  mobileOpen = !mobileOpen;
+  mobileNav.classList.toggle('open', mobileOpen);
+  hamburger.setAttribute('aria-expanded', mobileOpen);
+});
+
+// Close mobile nav on link click
+mobileNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileOpen = false;
+    mobileNav.classList.remove('open');
+  });
+});
+
+// ── FAQ accordion ──
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+
+  // Close all
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
+  // Open clicked (if it was closed)
+  if (!isOpen) {
+    item.classList.add('open');
+  }
+}
+
+// ── Scroll reveal ──
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => revealObserver.observe(el));
+
+// ── Form submit ──
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '✓ Message Sent!';
+  btn.style.background = 'linear-gradient(135deg, #27AE60, #2ECC71)';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.innerHTML = originalText;
+    btn.style.background = '';
+    btn.disabled = false;
+    e.target.reset();
+  }, 3000);
+}
+
+// ── Newsletter ──
+function handleNewsletter(e) {
+  e.preventDefault();
+  const input = e.target.previousElementSibling;
+  if (input.value && input.value.includes('@')) {
+    const btn = e.target;
+    btn.innerHTML = '✓';
+    btn.style.background = '#27AE60';
+    input.value = '';
+    setTimeout(() => {
+      btn.innerHTML = '→';
+      btn.style.background = '';
+    }, 3000);
+  }
+}
+
+// ── Active nav link ──
+const navLinks = document.querySelectorAll('.nav-links a');
+const currentPath = window.location.pathname;
+navLinks.forEach(link => {
+  if (link.getAttribute('href') === currentPath) {
+    link.classList.add('active');
+  }
+});
+</script>
+
 </body>
 </html>
-
